@@ -29,6 +29,7 @@ Installation
 The root directory for the Todd (``C:\lockstep\Todd`` in the example above) requires a `config.json` file. This will be loaded into Todd as ``$ToddConfig`` to be used by all subsequent scripts. The file is a json file with the following available settings.
 
 .. csv-table:: Main Config File
+   :widths: 15, 15, 15, 15, 40
    :header: Setting, IsRequired, Type, Requires, Description
 
    "SyslogServer", "no", "string", "SyslogPort SyslogApplication", "fqdn/ip of the desired syslog server"
@@ -40,6 +41,39 @@ The root directory for the Todd (``C:\lockstep\Todd`` in the example above) requ
    "LogThreshold", "no", "int",, "verbosity level for logging (higher is more verbose)"
    "MaxLogFiles", "no", "int",, "number of local log files to keep before rolling them"
    "AesKey", "yes", "array",, "byte array used to encrypt senstive configuration info, created with New-EncryptionKey_ from CorkScrew_ PowerShell module"
+
++-------------------+------------+--------+-------------------+------------------------------+
+| Setting           | IsRequired | Type   | Requires          | Description                  |
++===================+============+========+===================+==============================+
+| SyslogServer      | no         | string | SyslogPort        | fqdn/ip of the desired       |
+|                   |            |        | SyslogApplication | syslog server                |
++-------------------+------------+--------+-------------------+------------------------------+
+| SyslogPort        | no         | int    | SyslogServer      | udp port for desired syslog  |
+|                   |            |        | SyslogApplication | server                       |
++-------------------+------------+--------+-------------------+------------------------------+
+| SyslogApplication | no         | string | SyslogServer      | application identifier to    |
+|                   |            |        | SyslogPort        | use for syslog messages      |
++-------------------+------------+--------+-------------------+------------------------------+
+| LogDnaApiKey      | no         | int    | SyslogApplication | apikey for logdna messages   |
+|                   |            |        | LogDnaEnviroment  |                              |
++-------------------+------------+--------+-------------------+------------------------------+
+| LogDnaEnvironment | no         | int    | SyslogApplication | enviroment identifier to     |
+|                   |            |        | LogDnaApiKey      | use for logdna messages      |
+|                   |            |        |                   | (set this to the shortname   |
+|                   |            |        |                   | of the customer)             |
++-------------------+------------+--------+-------------------+------------------------------+
+| LogThreshold      | no         | int    |                   | verbosity level for logging  |
+|                   |            |        |                   | (higher is more verbose)     |
++-------------------+------------+--------+-------------------+------------------------------+
+| MaxLogFiles       | no         | int    |                   | number of local log files to |
+|                   |            |        |                   | keep before rolling them     |
++-------------------+------------+--------+-------------------+------------------------------+
+| AesKey            | yes        | array  |                   | byte array used to encrypt   |
+|                   |            |        |                   | senstive configuration       |
+|                   |            |        |                   | info, created with           |
+|                   |            |        |                   | New-EncryptionKey_ from      |
+|                   |            |        |                   | CorkScrew_ PowerShell module |
++-------------------+------------+--------+-------------------+------------------------------+
 
 Scheduled Task Setup
 --------------------

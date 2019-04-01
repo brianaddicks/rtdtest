@@ -168,14 +168,14 @@
 <div class="section" id="id1">
 <h2>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>The root directory for the Todd (<code class="docutils literal notranslate"><span class="pre">C:\lockstep\Todd</span></code> in the example above) requires a <cite>config.json</cite> file. This will be loaded into Todd as <code class="docutils literal notranslate"><span class="pre">$ToddConfig</span></code> to be used by all subsequent scripts. The file is a json file with the following available settings.</p>
-<table class="docutils align-center" id="id2">
+<table class="colwidths-given docutils align-center" id="id2">
 <caption><span class="caption-text">Main Config File</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -239,6 +239,90 @@
 <td><p>array</p></td>
 <td></td>
 <td><p>byte array used to encrypt senstive configuration info, created with <a class="reference external" href="https://corkscrew.readthedocs.io/en/latest/cmdlets/New-EncryptionKey/">New-EncryptionKey</a> from <a class="reference external" href="https://corkscrew.readthedocs.io">CorkScrew</a> PowerShell module</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 14%" />
+<col style="width: 9%" />
+<col style="width: 22%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>IsRequired</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Requires</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SyslogServer</p></td>
+<td><p>no</p></td>
+<td><p>string</p></td>
+<td><p>SyslogPort
+SyslogApplication</p></td>
+<td><p>fqdn/ip of the desired
+syslog server</p></td>
+</tr>
+<tr class="row-odd"><td><p>SyslogPort</p></td>
+<td><p>no</p></td>
+<td><p>int</p></td>
+<td><p>SyslogServer
+SyslogApplication</p></td>
+<td><p>udp port for desired syslog
+server</p></td>
+</tr>
+<tr class="row-even"><td><p>SyslogApplication</p></td>
+<td><p>no</p></td>
+<td><p>string</p></td>
+<td><p>SyslogServer
+SyslogPort</p></td>
+<td><p>application identifier to
+use for syslog messages</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogDnaApiKey</p></td>
+<td><p>no</p></td>
+<td><p>int</p></td>
+<td><p>SyslogApplication
+LogDnaEnviroment</p></td>
+<td><p>apikey for logdna messages</p></td>
+</tr>
+<tr class="row-even"><td><p>LogDnaEnvironment</p></td>
+<td><p>no</p></td>
+<td><p>int</p></td>
+<td><p>SyslogApplication
+LogDnaApiKey</p></td>
+<td><p>enviroment identifier to
+use for logdna messages
+(set this to the shortname
+of the customer)</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogThreshold</p></td>
+<td><p>no</p></td>
+<td><p>int</p></td>
+<td></td>
+<td><p>verbosity level for logging
+(higher is more verbose)</p></td>
+</tr>
+<tr class="row-even"><td><p>MaxLogFiles</p></td>
+<td><p>no</p></td>
+<td><p>int</p></td>
+<td></td>
+<td><p>number of local log files to
+keep before rolling them</p></td>
+</tr>
+<tr class="row-odd"><td><p>AesKey</p></td>
+<td><p>yes</p></td>
+<td><p>array</p></td>
+<td></td>
+<td><p>byte array used to encrypt
+senstive configuration
+info, created with
+<a class="reference external" href="https://corkscrew.readthedocs.io/en/latest/cmdlets/New-EncryptionKey/">New-EncryptionKey</a> from
+<a class="reference external" href="https://corkscrew.readthedocs.io">CorkScrew</a> PowerShell module</p></td>
 </tr>
 </tbody>
 </table>
